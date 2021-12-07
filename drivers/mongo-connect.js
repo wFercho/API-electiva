@@ -1,11 +1,12 @@
-'use strict'
 
+'use strict'
 const mongoose = require('mongoose')
 
-const url = 'mongodb://'
+const uri='mongodb+srv://sebasjoya:123Sistemas@cluster.nrexv.mongodb.net/test';
 
-mongoose.connect(url)
-    .then(()=>console.log('Connect DB SUCCESS'))
-    .catch((err)=>console.log(`ERROR DB ${err}`))
 
-module.exports = mongoose
+mongoose.connect(uri)
+    .then(()=>console.log('Connect DB success'))
+    .catch((err)=>console.log(`Error to connect ${err}`))
+
+ module.exports = mongoose
