@@ -1,14 +1,41 @@
-class Product{
+'use strict'
+const mongoose = require('mongoose')
+const {Schema} = mongoose
+const STOCK_MIN = 5
 
-    static STOCK_MIN = 5
-
-    constructor(idProducto, description, value, stock, dateExpired, typeProduct){
-        this.idProducto = idProducto
-        this.description = description
-        this.value = value
-        this.stock = stock
-        this.typeProduct = typeProduct //Alguno de los atributos estaticos de la clase ETypeProduct
-        this.dateExpired = dateExpired
+const proSchema = new Schema({
+    idProduct:{
+        type: String,
+        required: true
+    },
+    description:{
+        type: String,
+        required: true
+    },
+    value:{
+        type: Number,
+        required: true
+    },
+    stock:{
+        type:Number,
+        required: true
+    },
+    dateExpired:{
+        type: Date,
+        required: true
+    },
+    typeProduct:{
+        type: String,
+        required: true
     }
+})
 
-}
+proSchema.set('toJSON', {
+    transform:(document, returnedObject) => {
+        returnedObject.id = returnedObject._id
+        delete returnedObject._id
+        delete returnedObject.__v
+    }
+})
+
+module.exports = mongoose.model('Product', proSchema)
