@@ -13,6 +13,11 @@ app.use(express.json)
 app.use(express.urlencoded({extended:true}))
 
 //enrutamiento
+//test
+app.get('/',(req, res) => {
+    res.send("<h1>Hola Mundo</h1>")
+})
+app.use('/api',require('../routes/index'))
 
 
 module.exports = app
