@@ -10,6 +10,7 @@
   },
   "repository": {
     "type": "git",
+
     "url": "git+https://github.com/SEBASTIANJOYA/TallerNodeJS.git"
   },
   "keywords": [],
