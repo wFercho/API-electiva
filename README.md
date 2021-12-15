@@ -7,8 +7,7 @@ npm i nodemon -D
 //Modulo que se encarga de subir el servidor y en caso de que se presente un cambio 
 no tener que bajar el servidor y volverlo a subir.
 
-npm i express    
-//Modulo express es una implementacion de node que nos permite configurar el servidor.
+npm i express //Modulo express es una implementacion de node que nos permite configurar el servidor.
 
 npm i mongoose -S 
 //Modulo que nos permite interactuar con la BD
