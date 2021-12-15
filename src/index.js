@@ -1,9 +1,25 @@
 'use strict'
 
-const app = require('./app')
+const express = require('express');
+const app = express();
+const path = require('path');
+//bodyParser = require('body-parser');
+require('../drivers/mongo-connect')
 
-app.listen(app.get('port'),()=>{
+//Settings
+app.set('port',3000);
+app.set('views', path.join(__dirname, 'View'))
 
-    console.log(`Server listening at port ${app.get('port')}`)
+//Middlewares
+app.use(express.json())
+//app.use(bodyParser.json());
+app.use(express.urlencoded({extended:true}))
+//app.use(bodyParser.urlencoded({ extended: true }));
 
-})
+//Routes
+app.use(require('../routes/index'));
+
+//Server
+app.listen(app.get('port'), ()=>{
+    console.log('Server on port',app.get('port'))
+});

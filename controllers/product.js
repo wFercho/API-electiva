@@ -1,67 +1,70 @@
 'use strict'
 
-const ModProduct = require('../models/Product')
+const Product = require('../models/Product')
 
-exports.ListaProductos = function(req, res){
-    ModProduct.find(function (err, producto){
-        console.log('/GET/ListaProductos')
-        if(err){
-            return res.status(500).json({"error":err.toString()})
+module.exports ={
+
+    index : async(req,res,next) =>{
+
+        try {
+            const result = await Product.find({})
+            return res.status("200").json({"result":"success","data":result})
+     
+        } catch (err) {
+            return res.status(500).json({"result":"Error","error":err.message})
         }
-        return res.status(200).json(producto)      
-    })
+    },
+
+    getProduct : async(req,res,next) =>{
+
+        try {
+            const {idProduct} = req.params
+            const result = await Product.find({"idProduct":idProduct})
+            return res.status("200").json({"result":"Success","idProduct":result})
+     
+        } catch (err) {
+            return res.status(500).json({"result":"Error","error":err.message})
+        }
+    },
+    updateProduct : async(req,res,next) =>{
+
+        try {
+            const {idProduct} = req.params
+            const dpto = req.body
+            const result = await Product.findByIdAndUpdate(idProduct,dpto)
+            
+            return res.status("200").json({"result":"Success","data":result})
+     
+        } catch (err) {
+            return res.status(500).json({"result":"Error","error":err.message})
+        }
+    },
+
+    deleteProduct : async(req,res,next) =>{
+
+        try {
+            const {idProduct} = req.params
+            const result = await Product.findByIdAndDelete(idProduct)
+           
+            return res.status("200").json({"result":"Success","id":result})
+     
+        } catch (err) {
+            return res.status(500).json({"result":"Error","error":err.message})
+        }
+    },
 }
-exports.CrearProducto = function(req, res){
-    const element = new ModProduct(req.body)
-    console.log('/POST/CrearProducto')
-    console.log(req.body)
+
+function newProduct(req,res){
+    const element = new Product(req.body)
     element.save((err,result)=>{
         if(err){
             return res.status(500).json({"error":err.toString()})
         }
+
         return res.status(200).json({"result":result})
     })
 }
-exports.BorrarProducto = function(req, res){
-    const {idProduct} =req.params
-    const elProd = idProduct
-    ModProduct.findOne({idProduct:elProd},function(err,producto){
-        if(err) return res.send(500, err.message);
-        if(producto!=null){
-            ModProduct.deleteOne({idProduct:elProd},function(err, producto){
-                console.log('DELETE/BorrarProducto/'+elProd);
-                res.status(200).jsonp(producto);
-            })
-        }else{
-            res.status(200).jsonp("Producto no registrado");
-        }
-    })
-}
-exports.BuscarProducto = function(req, res){
-    const {idProduct} =req.params
-    const elProd = idProduct
-    ModProduct.findOne({idProduct:elProd},function(err,producto){
-        if(err) return res.send(500, err.message);
-        if(producto!=null){
-            console.log('GET/BuscarProducto/'+elProd);
-            res.status(200).jsonp(producto);
-        }else{
-            res.status(200).jsonp("Producto no registrado");
-        }
-    })
-}
-exports.ModificarProducto = function(req, res){
-    const {idProduct} =req.params
-    const elProd = idProduct
-    let update = req.body
-    ModProduct.findOne({idProduct:elProd},function(err,producto){
-        if(producto==null){
-            res.status(200).jsonp("Producto no registrado");
-        }
-    })
-    ModProduct.findOneAndUpdate({idProduct:elProd},update, (err, productUpdated)=>{
-        if(err) return res.send(500, err.message);
-        console.log("/PUT/ModificarProducto/"+elProd)
-        res.status(200).jsonp("La modificacion del producto se ha hecho en el producto con Id: "+elProd);
-    }) 
-}
+
+//module.exports.getProducts = getProducts
+module.exports.newProduct = newProduct
+//module.exports.getProduct = getProduct
