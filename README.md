@@ -22,8 +22,8 @@ npm run dev
 
 //controllers => Dentro de esta carpeta controllers voy a encontrar todas las peticiones realizadas y se compone de tres clases que son :
 
-bill.js,
-detail.js,
+bill.js
+detail.js
 product.js
 
 //drivers => Dentro de esta carpeta drivers podemos encontrar la conexion con la base de datos mongo el cual se compone de una clase.
@@ -43,9 +43,18 @@ ETypeProduct
 
 //routes => Dentro de carpeta routes se encuentran las distintas rutas de las cuales se hacen uso para el consumo de una API
 
-'/ListaProd' Usando metodo GET podemos obtener la lista de los productos
-'/CrearProducto' Usando metodo POST podemos crear un producto de acuerdo a los atributos establecidos
-'/BorrarProducto/:idProduct' Usando metodo DELETE podemos eliminar un producto de acurdo a su ID
-'/BuscarProducto/:idProduct' Usando metodo GET podemos obtener el producto de acuerdo al ID. 
-'/ModificarProducto/:idProduct' Usando metodo PUT podemos modificar el producto especificando el ID del producto a modificar
+'/ListaProd' 
+Usando metodo GET podemos obtener la lista de los productos
+
+'/CrearProducto' 
+Usando metodo POST podemos crear un producto de acuerdo a los atributos establecidos
+
+'/BorrarProducto/:idProduct' 
+Usando metodo DELETE podemos eliminar un producto de acurdo a su ID
+
+'/BuscarProducto/:idProduct' 
+Usando metodo GET podemos obtener el producto de acuerdo al ID. 
+
+'/ModificarProducto/:idProduct' 
+Usando metodo PUT podemos modificar el producto especificando el ID del producto a modificar
  
