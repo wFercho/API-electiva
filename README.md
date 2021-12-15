@@ -42,18 +42,18 @@ ETypeProduct
 
 //routes => Dentro de carpeta routes se encuentran las distintas rutas de las cuales se hacen uso para el consumo de una API
 
-'/ListaProd' 
+'/' 
 Usando metodo GET podemos obtener la lista de los productos
 
-'/CrearProducto' 
+'/newproduct' 
 Usando metodo POST podemos crear un producto de acuerdo a los atributos establecidos
 
-'/BorrarProducto/:idProduct' 
+'/deleteproduct/:idProduct' 
 Usando metodo DELETE podemos eliminar un producto de acurdo a su ID
 
-'/BuscarProducto/:idProduct' 
+'/:idProduct' 
 Usando metodo GET podemos obtener el producto de acuerdo al ID. 
 
-'/ModificarProducto/:idProduct' 
+'/updateproduct/:idProduct' 
 Usando metodo PUT podemos modificar el producto especificando el ID del producto a modificar
  
