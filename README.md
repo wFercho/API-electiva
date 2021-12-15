@@ -22,8 +22,8 @@ npm run dev
 
 //controllers => Dentro de esta carpeta controllers voy a encontrar todas las peticiones realizadas y se compone de tres clases que son :
 
-bill.js
-detail.js
+bill.js,
+detail.js,
 product.js
 
 //drivers => Dentro de esta carpeta drivers podemos encontrar la conexion con la base de datos mongo el cual se compone de una clase.
