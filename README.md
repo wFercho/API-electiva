@@ -42,7 +42,7 @@ ETypeProduct
 
 //routes => Dentro de carpeta routes se encuentran las distintas rutas de las cuales se hacen uso para el consumo de una API
 
-'/' 
+'/getproducts' 
 Usando metodo GET podemos obtener la lista de los productos
 
 '/newproduct' 
