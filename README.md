@@ -56,4 +56,30 @@ Usando metodo GET podemos obtener el producto de acuerdo al ID.
 
 '/updateproduct/:idProduct' 
 Usando metodo PUT podemos modificar el producto especificando el ID del producto a modificar
+
+'/getDetails'
+Usando metodo GET podemos obtener la lista de los detalles
  
+'/newDetail'
+Usando metodo POST podemos crear un detalle de acuerdo a los atributos establecidos
+
+'/updateDetail/:cant'
+Usando metodo PUT podemos modificar el detalle especificando la variable del producto a modificar
+
+'/deleteDetail/:cant'
+Usando metodo DELETE podemos eliminar un detalle de acurdo a su cant
+
+'getbills'
+Usando metodo GET podemos obtener la lista de las faturas
+
+'/newbill'
+Usando metodo POST podemos crear una factura de acuerdo a los atributos establecidos
+
+'/updatebill/:number'
+Usando metodo PUT podemos modificar el detalle especificando la variable de la factura a modificar
+
+'/deletebill/:number'
+Usando metodo DELETE podemos eliminar una factura de acuerdo a su numero de identificacion
+
+
+
