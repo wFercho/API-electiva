@@ -2,9 +2,7 @@
 'use strict'
 const mongoose = require('mongoose')
 
-const uri='mongodb+srv://sebasjoya:123Sistemas@cluster.nrexv.mongodb.net/test';
-//const uri = 'mongodb://localhost:27017/taller-col'
-
+const uri=`mongodb+srv://${process.env.USER_DATABASE}:${process.env.PASSWORD}@cluster0.w9cte.mongodb.net/myFirstDatabase?retryWrites=true&w=majority`;
 
 mongoose.connect(uri)
     .then(()=>console.log('Connect DB success'))

@@ -1,5 +1,8 @@
 'use strict'
 
+//Cargar variables de entorno
+require('dotenv').config();
+
 const express = require('express');
 const app = express();
 const path = require('path');
