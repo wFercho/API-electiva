@@ -1,4 +1,4 @@
-# TallerNodeJS
+# API
 Taller Colaborativo NodeJS para la asignatura de ELECTIVA II - Desarrollo Web
 
 Para poder hacer la configuracion necesito instalar unos modulos :
