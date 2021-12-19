@@ -1,8 +1,7 @@
 'use strict'
 
-const {index,getProduct,updateProduct,deleteProduct} = require('../controllers/product')
+
 const {indexDetail,getDetail,newDetail,updateDetail,deleteDetail} = require('../controllers/detail')
-const productController = require('../controllers/product')
 const {indexBill,newBill,getBill,updateBill,deleteBill} = require('../controllers/bill')
 const express = require('express')
 const { model } = require('mongoose')
@@ -22,17 +21,13 @@ router.get('/getbill/:number', getBill)
 router.get('/updatebill/:number', updateBill)
 router.get('/deletebill/:number', deleteBill)
 
-//GET para listar productos
-router.get('/producto',index)
-//GET para busar un producto por id
+//PRODUCTOS
+const {newProduct, getAllProductos,getProduct,updateProduct,deleteProduct} = require('../controllers/product')
+router.get('/producto',getAllProductos)
 router.get('/producto/:idProduct',getProduct)
-//POST para crear productos
-router.post('/producto',productController.newProduct)
-
-//DELETE para eliminar productos por IDnewCliente
-router.delete('/producto/:idProduct', deleteProduct)
-//PUT para modificar un producto
 router.put('/producto/:idProduct',updateProduct)
+router.post('/producto',newProduct)
+router.delete('/producto/:idProduct', deleteProduct)
 
 //CLIENTES
 const {getAllClientes, getCliente, updateCliente, deleteCliente, newCliente} = require('../controllers/cliente')
@@ -41,6 +36,16 @@ router.get('/cliente/:id', getCliente)
 router.post('/cliente', newCliente)
 router.put('/cliente/:id', updateCliente)
 router.delete('/cliente/:id', deleteCliente)
- 
+
+
+//PROVEEDOR
+const {getAllProveedores, getProveedor, updateProveedor, deleteProveedor, newProveedor} = require('../controllers/proveedor')
+router.get('/proveedor', getAllProveedores)
+router.get('/proveedor/:id', getProveedor)
+router.post('/proveedor', newProveedor)
+router.put('/proveedor/:id', updateProveedor)
+router.delete('/proveedor/:id', deleteProveedor)
+
+
 module.exports = router;
 

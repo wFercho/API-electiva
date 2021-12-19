@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 const {Schema} = mongoose
 const STOCK_MIN = 5
 
-const clientSchema = new Schema({
+const proveedorSchema = new Schema({
     idProveedor:{
         type: String,
         required: false
@@ -22,7 +22,7 @@ const clientSchema = new Schema({
     },
 })
 
-proSchema.set('toJSON', {
+proveedorSchema.set('toJSON', {
     transform:(document, returnedObject) => {
         returnedObject.id = returnedObject._id
         delete returnedObject._id
@@ -30,4 +30,4 @@ proSchema.set('toJSON', {
     }
 })
 
-module.exports = mongoose.model('Cliente', clientSchema)
+module.exports = mongoose.model('Proveedor', proveedorSchema)

@@ -4,7 +4,7 @@ const Product = require('../models/Product')
 
 module.exports ={
 
-    index : async(req,res,next) =>{
+    getAllProductos : async(req,res,next) =>{
 
         try {
             const result = await Product.find({})
