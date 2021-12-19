@@ -20,7 +20,7 @@ app.use(express.urlencoded({extended:true}))
 //app.use(bodyParser.urlencoded({ extended: true }));
 
 //Routes
-app.use(require('../routes/index'));
+app.use('/api',require('../routes/index'));
 
 //Server
 app.listen(app.get('port'), ()=>{

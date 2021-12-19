@@ -23,16 +23,24 @@ router.get('/updatebill/:number', updateBill)
 router.get('/deletebill/:number', deleteBill)
 
 //GET para listar productos
-router.get('/',index)
+router.get('/producto',index)
 //GET para busar un producto por id
-router.get('/:idProduct',getProduct)
+router.get('/producto/:idProduct',getProduct)
 //POST para crear productos
-router.post('/newproduct',productController.newProduct)
+router.post('/producto',productController.newProduct)
 
-//DELETE para eliminar productos por ID
-router.delete('/deleteproduct/:idProduct', deleteProduct)
+//DELETE para eliminar productos por IDnewCliente
+router.delete('/producto/:idProduct', deleteProduct)
 //PUT para modificar un producto
-router.put('/updateproduct/:idProduct',updateProduct)
+router.put('/producto/:idProduct',updateProduct)
+
+//CLIENTES
+const {getAllClientes, getCliente, updateCliente, deleteCliente, newCliente} = require('../controllers/cliente')
+router.get('/cliente', getAllClientes)
+router.get('/cliente/:id', getCliente)
+router.post('/cliente', newCliente)
+router.put('/cliente/:id', updateCliente)
+router.delete('/cliente/:id', deleteCliente)
  
 module.exports = router;
 

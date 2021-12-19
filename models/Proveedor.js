@@ -3,31 +3,23 @@ const mongoose = require('mongoose')
 const {Schema} = mongoose
 const STOCK_MIN = 5
 
-const proSchema = new Schema({
-    idProduct:{
+const clientSchema = new Schema({
+    idProveedor:{
         type: String,
         required: false
     },
-    description:{
+    nombre:{
         type: String,
         required: true
     },
-    value:{
+    cantProducto:{
         type: Number,
         required: true
     },
-    stock:{
-        type:Number,
-        required: true
+    producto:{
+        type: Schema.Types.ObjectId,
+        ref: 'Product'
     },
-    dateExpired:{
-        type: Date,
-        required: false
-    },
-    typeProduct:{
-        type: String,
-        required: false
-    }
 })
 
 proSchema.set('toJSON', {
@@ -38,4 +30,4 @@ proSchema.set('toJSON', {
     }
 })
 
-module.exports = mongoose.model('Product', proSchema)
+module.exports = mongoose.model('Cliente', clientSchema)
