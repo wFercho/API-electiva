@@ -4,6 +4,17 @@ const Product = require('../models/Product')
 
 module.exports ={
 
+    newProduct: (req,res) => {
+        const element = new Product(req.body)
+        element.save((err,result)=>{
+            if(err){
+                return res.status(500).json({"error":err.toString()})
+            }
+    
+            return res.status(200).json({"result":result})
+        })
+    },
+
     getAllProductos : async(req,res,next) =>{
 
         try {
@@ -54,17 +65,24 @@ module.exports ={
     },
 }
 
-function newProduct(req,res){
-    const element = new Product(req.body)
-    element.save((err,result)=>{
-        if(err){
-            return res.status(500).json({"error":err.toString()})
-        }
+const isExpired = (producto) =>{
 
-        return res.status(200).json({"result":result})
-    })
+    //Diferencia de fecha
+
+    let diferencia = 0
+    let isExpired = diferencia <= 0 ? true : false
+
+    return isExpired
 }
 
+const calcIva = ({value}) =>{
+    let valIva = 0
+    valIva = value + (value * 0.19) 
+    return valIva
+
+}
+
+
+
 //module.exports.getProducts = getProducts
-module.exports.newProduct = newProduct
 //module.exports.getProduct = getProduct

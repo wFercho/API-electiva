@@ -4,7 +4,7 @@ const Bill = require('../models/Bill')
 
 module.exports ={
 
-    indexBill : async(req,res,next) =>{
+    getAllBill : async(req,res,next) =>{
 
         try {
             const result = await Bill.find({})
@@ -65,6 +65,15 @@ module.exports ={
         }
     },
 }
+
+
+const calcTotal = ()=>{
+    let total = new Float();
+
+    return total
+}
+
+
 
 
 

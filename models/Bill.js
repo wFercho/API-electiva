@@ -15,9 +15,13 @@ const billSchema = new Schema({
         type: Boolean,
         require: true
     },
-    details:{
+    details:[{
         type: Schema.Types.ObjectId,
         ref: 'Detail'
+    }],
+    cliente:{
+        type: Schema.Types.ObjectId,
+        ref: 'Cliente'
     }
 })
 

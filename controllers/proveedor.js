@@ -2,10 +2,21 @@
 
 const Proveedor = require('../models/Proveedor')
 
+
 module.exports ={
 
     newProveedor: (req,res) => {
         const element = new Proveedor(req.body)
+        element.save((err,result)=>{
+            if(err){
+                return res.status(500).json({"error":err.toString()})
+            }
+    
+            return res.status(200).json({"result":result})
+        })
+    },
+    newETProduct: (req,res) => {
+        const element = new ETProduct(req.body)
         element.save((err,result)=>{
             if(err){
                 return res.status(500).json({"error":err.toString()})

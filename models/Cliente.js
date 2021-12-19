@@ -4,7 +4,10 @@ const {Schema} = mongoose
 const STOCK_MIN = 5
 
 const clientSchema = new Schema({
-    idCliente: String,
+    idCliente: {
+        type: String,
+        required:true
+    },
     nombre: String,
     correo:String,
     bills:[{

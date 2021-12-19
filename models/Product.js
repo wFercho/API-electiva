@@ -25,8 +25,8 @@ const proSchema = new Schema({
         required: false
     },
     typeProduct:{
-        type: String,
-        required: false
+        type: Schema.Types.ObjectId,
+        ref:'ETypeProduct'
     }
 })
 

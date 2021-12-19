@@ -2,7 +2,6 @@
 
 
 const {indexDetail,getDetail,newDetail,updateDetail,deleteDetail} = require('../controllers/detail')
-const {indexBill,newBill,getBill,updateBill,deleteBill} = require('../controllers/bill')
 const express = require('express')
 const { model } = require('mongoose')
 const router = express.Router()
@@ -14,12 +13,13 @@ router.get('/getDetail/:cant', getDetail)
 router.get('/updateDetail/:cant', updateDetail)
 router.get('/deleteDetail/:cant', deleteDetail)
 
-//router.get('/getbills', billController.getBills)
-router.get('/getbills',indexBill)
-router.post('/newbill',newBill)
-router.get('/getbill/:number', getBill)
-router.get('/updatebill/:number', updateBill)
-router.get('/deletebill/:number', deleteBill)
+//BILL
+const {getAllBill,newBill,getBill,updateBill,deleteBill} = require('../controllers/bill')
+router.get('/bill',getAllBill)
+router.get('/bill/:id', getBill)
+router.post('/bill',newBill)
+router.put('/bill/:id', updateBill)
+router.delete('/bill/:id', deleteBill)
 
 //PRODUCTOS
 const {newProduct, getAllProductos,getProduct,updateProduct,deleteProduct} = require('../controllers/product')

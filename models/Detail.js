@@ -7,10 +7,10 @@ const detSchema = new Schema({
         type: Number,
         required:true
     },
-    product:[{
+    product:{
         type: Schema.Types.ObjectId,
         ref: 'Product'
-    }]
+    }
 })
 
 module.exports = mongoose.model('Detail', detSchema)
